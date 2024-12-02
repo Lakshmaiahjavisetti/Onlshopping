@@ -1,0 +1,38 @@
+﻿@model IEnumerable<Mvc_systemtest.Models.ApplicationUser>
+
+@{
+    ViewBag.Title = "Admin Dashboard";
+}
+
+<h2>Admin Dashboard</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>User ID</th>
+            <th>Username</th>
+            <th>Is Active</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var user in Model)
+        {
+            <tr>
+                <td>@user.Id</td>
+                <td>@user.UserName</td>
+                <td>@user.IsActive</td>
+                <td>
+                    @if (user.IsActive)
+                    {
+                        @Html.ActionLink("Deactivate", "DeactivateUser", new { userId = user.Id }, new { @class = "btn btn-warning" })
+                    }
+                    else
+                    {
+                        @Html.ActionLink("Activate", "ActivateUser", new { userId = user.Id }, new { @class = "btn btn-success" })
+                    }
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

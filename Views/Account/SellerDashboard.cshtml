@@ -1,0 +1,34 @@
+﻿@model IEnumerable<Mvc_systemtest.Models.Product>
+
+@{
+    ViewBag.Title = "Seller Dashboard";
+}
+
+<h2>Seller Dashboard</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Product Name</th>
+            <th>Description</th>
+            <th>Price</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var product in Model)
+        {
+            <tr>
+                <td>@product.ProductName</td>
+                <td>@product.ProductDescription</td>
+                <td>@String.Format("{0:C2}", product.Price)</td> <!-- Formatting price with currency -->
+                <td>
+                    <a href="@Url.Action("EditProduct", "Account", new {  })" class="btn btn-primary" role="button" aria-label="Edit product">Edit</a>
+                    <a href="@Url.Action("DeleteProduct", "Account", new {  })" class="btn btn-danger" role="button" aria-label="Delete product" onclick="return confirm('Are you sure you want to delete this product?')">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+@Html.ActionLink("Upload New Product", "UploadProduct", "Account", null, new { @class = "btn btn-success", aria_label = "Upload new product" })

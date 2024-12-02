@@ -1,0 +1,46 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+    <style>
+        body {
+            background: linear-gradient(to left, white, lavender);
+        }
+        .d1{
+            padding-top: 200px;
+        }
+        sub{
+            color: cornflowerblue;
+        }
+        sup {
+            color: cornflowerblue;
+        }
+        
+
+       
+    </style>
+</head>
+<body>
+    <div > 
+        <center class="d1">
+            <span class="display-6 fw-bold">WELCOME TO  THE &nbsp;<sup>F</sup><sub>A</sub><sup>S</sup>H<sup>I</sup><sub>O</sub><sup>N</sup>&nbsp; WORLD</span><br />
+            <br />
+            @Html.ActionLink("Register", "Register", "Account", null, new { @class = "btn btn-outline-warning", aria_label = "Upload new product" })
+            @Html.ActionLink("Login", "Login", "Account", null, new { @class = "btn btn-outline-success", aria_label = "Upload new product" })
+            @Html.ActionLink("Upload New Product", "UploadProduct", "Account", null, new { @class = "btn btn-outline-danger", aria_label = "Upload new product" })
+            @Html.ActionLink("Admin DashBoard", "AdminDashboard", "Account", null, new { @class = "btn btn-outline-info", aria_label = "Upload new product" })
+            @Html.ActionLink("Seller DashBoard", "SellerDashboard", "Account", null, new { @class = "btn btn-outline-dark", aria_label = "Upload new product" })
+
+        </center>
+    </div>
+</body>
+</html>
